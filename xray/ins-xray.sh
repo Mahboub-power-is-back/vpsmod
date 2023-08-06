@@ -52,7 +52,8 @@ curl https://get.acme.sh | sh
 source ~/.bashrc
 cd .acme.sh
 bash acme.sh --issue -d $domain --force
-bash acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key
+bash acme.sh --register-account -m Mahboubmillion6@gmail.com
+bash acme.sh --issue --standalone -d $domain --server letsencrypt --keylength ec-256 --fullchain-file /usr/local/etc/xray/fullchain.crt --key-file /usr/local/etc/xray/private.key --standalone --force
 
 service squid start
 uuid1=$(cat /proc/sys/kernel/random/uuid)
