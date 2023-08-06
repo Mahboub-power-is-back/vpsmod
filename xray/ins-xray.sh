@@ -50,10 +50,8 @@ sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
 cd /root/
 curl https://get.acme.sh | sh
 source ~/.bashrc
-rm acme.sh
 cd .acme.sh
-bash acme.sh --register-account -m Mahboubmillion6@gmail.com
-bash acme.sh --issue --standalone -d $domain --force
+bash acme.sh --issue -d $domain --force
 bash acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key
 
 service squid start
