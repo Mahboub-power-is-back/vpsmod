@@ -53,8 +53,7 @@ source ~/.bashrc
 cd .acme.sh
 bash acme.sh --issue -d $domain --force
 bash acme.sh --register-account -m Mahboubmillion6@gmail.com
-bash acme.sh --server letsencrypt --issue --dns dns_acme4netvs -d $domain
-bash acme.sh --issue --standalone -d $domain --server letsencrypt --keylength ec-256 --fullchain-file /usr/local/etc/xray/fullchain.crt --key-file /usr/local/etc/xray/private.key --standalone --force
+bash acme.sh --issue --dns dns_acme4netvs --standalone -d $domain --server letsencrypt --keylength ec-256 --fullchain-file /usr/local/etc/xray/fullchain.crt --key-file /usr/local/etc/xray/private.key --standalone --force
 
 service squid start
 uuid1=$(cat /proc/sys/kernel/random/uuid)
