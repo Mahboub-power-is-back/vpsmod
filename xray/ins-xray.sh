@@ -48,12 +48,13 @@ mkdir -p /var/log/xray/
 
 sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
 cd /root/
-curl https://get.acme.sh | sh
-source ~/.bashrc
+wget https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh
+bash acme.sh --install
+rm acme.sh
 cd .acme.sh
-bash acme.sh --issue -d $domain --force
-bash acme.sh --register-account -m Mahboubmillion6@gmail.com
-bash acme.sh --issue --standalone -d $domain --server letsencrypt --keylength ec-256 --fullchain-file /usr/local/etc/xray/fullchain.crt --key-file /usr/local/etc/xray/private.key --standalone --force
+bash acme.sh --register-account -m senowahyu62@gmail.com
+bash acme.sh --issue --standalone -d $domain --force
+bash acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key
 
 service squid start
 uuid1=$(cat /proc/sys/kernel/random/uuid)
