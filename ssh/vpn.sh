@@ -55,6 +55,8 @@ client
 dev tun
 proto tcp
 remote xxxxxxxxx 1194
+http-proxy-option CUSTOM-HEADER Host type.host.here/
+http-proxy xxxxxxxxx 8080
 resolv-retry infinite
 route-method exe
 nobind
@@ -90,7 +92,7 @@ cat > /etc/openvpn/ssl.ovpn <<-END
 client
 dev tun
 proto tcp
-remote xxxxxxxxx 990
+remote xxxxxxxxx 443
 resolv-retry infinite
 route-method exe
 nobind
