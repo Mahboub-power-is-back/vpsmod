@@ -213,8 +213,8 @@ RUN=yes
 # systemd users: don't forget to modify /lib/systemd/system/sslh.service
 DAEMON=/usr/sbin/sslh
 
-DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --ssl 127.0.0.1:440 --ssh 127.0.0.1:109 --openvpn 127.0.0.1:1194 --http 127.0.0.1:8880 --pidfile /var/run/sslh/sslh.pid -n"
-
+DAEMON_OPTS="--user sslh --listen 0.0.0.0:2053 --ssl 127.0.0.1:440 --ssh 127.0.0.1:109 --openvpn 127.0.0.1:1194 --http 127.0.0.1:8880 --pidfile /var/run/sslh/sslh.pid -n"
+DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --ssl 127.0.0.1:440 --ssh 127.0.0.1:22 --openvpn 127.0.0.1:1194 --http 127.0.0.1:8880 --pidfile /var/run/sslh/sslh1.pid -n"
 END
 
 # Restart Service SSLH
@@ -223,6 +223,12 @@ systemctl restart sslh
 /etc/init.d/sslh restart
 /etc/init.d/sslh status
 /etc/init.d/sslh restart
+service sslh1 restart
+systemctl restart sslh1
+/etc/init.d/sslh1 restart
+/etc/init.d/sslh1 status
+/etc/init.d/sslh1 restart
+
 
 # setting vnstat
 apt -y install vnstat
