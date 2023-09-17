@@ -37,9 +37,9 @@ ver=$VERSION_ID
 country=TN
 state=Tunisia
 locality=Tunisia
-organization=akbarstorevpn
-organizationalunit=akbarstorevpn
-commonname=akbarstorevpn
+organization=sslhtunnelmax.com
+organizationalunit=sslhtunnelmax.com
+commonname=sslhtunnelmax.com
 email=vpsplus90@gmail.com
 
 # simple password minimal
