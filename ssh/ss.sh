@@ -13,7 +13,7 @@ Description=Daemonize DNSTT Tunnel Server
 Wants=network.target
 After=network.target
 [Service]
-ExecStart=/usr/local/bin/dnstt-server -udp :5300 -privkey 926d2e559047d381dfb6f66e020ce5e1f4d9199d3eea71ac9681112b0a2031f6 $DnsNS 127.0.0.1:22
+ExecStart=/usr/local/bin/dnstt-server -udp :5300 -privkey 926d2e559047d381dfb6f66e020ce5e1f4d9199d3eea71ac9681112b0a2031f6 $DnsNS 127.0.0.1:8443
 Restart=always
 RestartSec=3
 [Install]
