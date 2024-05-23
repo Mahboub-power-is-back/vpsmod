@@ -39,6 +39,9 @@ if [[ "$ver" = "18.04" ]]; then
 yoi=Ubuntu18
 elif [[ "$ver" = "20.04" ]]; then
 yoi=Ubuntu20
+if [[ $OS == 'ubuntu' ]]; then
+if [[ "$ver" = "22.04" ]]; then
+yoi=Ubuntu22
 fi
 elif [[ $OS == 'debian' ]]; then
 if [[ "$ver" = "9" ]]; then
@@ -60,7 +63,7 @@ commonname=akbarstorevpn
 email=akbarssh21@gmail.com
 
 #install sstp
-apt-get install -y build-essential cmake gcc linux-headers-`uname -r` git libpcre3-dev libssl-dev liblua5.1-0-dev ppp
+sudo apt-get install -y build-essential cmake gcc linux-headers-`uname -r` git libpcre3-dev libssl-dev liblua5.1-0-dev ppp
 git clone https://github.com/accel-ppp/accel-ppp.git /opt/accel-ppp-code
 mkdir /opt/accel-ppp-code/build
 cd /opt/accel-ppp-code/build/
