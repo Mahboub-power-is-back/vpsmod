@@ -85,47 +85,47 @@ echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
 sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
 
 #update
-apt update -y
-apt upgrade -y
-apt dist-upgrade -y
-apt-get remove --purge ufw firewalld -y
-apt-get remove --purge exim4 -y
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt dist-upgrade -y
+sudo apt-get remove --purge ufw firewalld -y
+sudo apt-get remove --purge exim4 -y
 
 # install wget and curl
-apt -y install wget curl
+sudo apt -y install wget curl
 
 # Install Requirements Tools
-apt install ruby -y
-apt install python -y
-apt install make -y
-apt install cmake -y
-apt install coreutils -y
-apt install rsyslog -y
-apt install net-tools -y
-apt install zip -y
-apt install unzip -y
-apt install nano -y
-apt install sed -y
-apt install gnupg -y
-apt install gnupg1 -y
-apt install bc -y
-apt install jq -y
-apt install apt-transport-https -y
-apt install build-essential -y
-apt install dirmngr -y
-apt install libxml-parser-perl -y
-apt install neofetch -y
-apt install git -y
-apt install lsof -y
-apt install libsqlite3-dev -y
-apt install libz-dev -y
-apt install gcc -y
-apt install g++ -y
-apt install libreadline-dev -y
-apt install zlib1g-dev -y
-apt install libssl-dev -y
-apt install libssl1.0-dev -y
-apt install dos2unix -y
+sudo apt install ruby -y
+sudo apt install python -y
+sudo apt install make -y
+sudo apt install cmake -y
+sudo apt install coreutils -y
+sudo apt install rsyslog -y
+sudo apt install net-tools -y
+sudo apt install zip -y
+sudo apt install unzip -y
+sudo apt install nano -y
+sudo apt install sed -y
+sudo apt install gnupg -y
+sudo apt install gnupg1 -y
+sudo apt install bc -y
+sudo apt install jq -y
+sudo apt install apt-transport-https -y
+sudo apt install build-essential -y
+sudo apt install dirmngr -y
+sudo apt install libxml-parser-perl -y
+sudo apt install neofetch -y
+sudo apt install git -y
+sudo apt install lsof -y
+sudo apt install libsqlite3-dev -y
+sudo apt install libz-dev -y
+sudo apt install gcc -y
+sudo apt install g++ -y
+sudo apt install libreadline-dev -y
+sudo apt install zlib1g-dev -y
+sudo apt install libssl-dev -y
+sudo apt install libssl1.0-dev -y
+sudo apt install dos2unix -y
 
 # set time GMT +7
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
@@ -134,12 +134,12 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 
 # install
-apt-get --reinstall --fix-missing install -y bzip2 gzip coreutils wget screen rsyslog iftop htop net-tools zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https build-essential dirmngr libxml-parser-perl neofetch git lsof
+sudo apt-get --reinstall --fix-missing install -y bzip2 gzip coreutils wget screen rsyslog iftop htop net-tools zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https build-essential dirmngr libxml-parser-perl neofetch git lsof
 echo "clear" >> .profile
 echo "neofetch" >> .profile
 
 # install webserver
-apt -y install nginx php php-fpm php-cli php-mysql libxml-parser-perl
+sudo apt -y install nginx php php-fpm php-cli php-mysql libxml-parser-perl
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 curl https://${akbarvpn}/nginx.conf > /etc/nginx/nginx.conf
@@ -176,7 +176,7 @@ screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900 --max-clients 500
 sed -i 's/Port 22/Port 22/g' /etc/ssh/sshd_config
 
 # install dropbear
-apt -y install dropbear
+sudo apt -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 109"/g' /etc/default/dropbear
@@ -186,7 +186,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 
 # install squid
 cd
-apt -y install squid3
+sudo apt -y install squid3
 wget -O /etc/squid/squid.conf "https://${akbarvpn}/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
@@ -232,7 +232,7 @@ systemctl restart sslh1
 # setting vnstat
 apt -y install vnstat
 /etc/init.d/vnstat restart
-apt -y install libsqlite3-dev
+sudo apt -y install libsqlite3-dev
 wget https://humdi.net/vnstat/vnstat-2.6.tar.gz
 tar zxvf vnstat-2.6.tar.gz
 cd vnstat-2.6
@@ -284,7 +284,7 @@ connect = 127.0.0.1:1194
 
 [SQUIDSSL]
 accept = 440
-connect = 127.0.0.1:3128
+connect = 127.0.0.1:8880
 
 END
 
@@ -339,7 +339,7 @@ systemctl restart stunnel5
 wget https://${akbarvpn}/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
 # install fail2ban
-apt -y install fail2ban
+sudo apt -y install fail2ban
 
 # Instal DDOS Flate
 if [ -d '/usr/local/ddos' ]; then
@@ -524,13 +524,13 @@ echo "0 5 * * * root clearlog && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 # remove unnecessary files
 cd
-apt autoclean -y
-apt -y remove --purge unscd
-apt-get -y --purge remove samba*;
-apt-get -y --purge remove apache2*;
-apt-get -y --purge remove bind9*;
-apt-get -y remove sendmail*
-apt autoremove -y
+sudo apt autoclean -y
+sudo apt -y remove --purge unscd
+sudo apt-get -y --purge remove samba*;
+sudo apt-get -y --purge remove apache2*;
+sudo apt-get -y --purge remove bind9*;
+sudo apt-get -y remove sendmail*
+sudo apt autoremove -y
 # finishing
 cd
 chown -R www-data:www-data /home/vps/public_html
