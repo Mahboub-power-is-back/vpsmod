@@ -75,8 +75,8 @@ elif [[ $ver == '8' ]]; then
   yum "$REPO4" -y install systemd-devel libevent-devel fipscheck-devel 
 fi
 else
-apt install openssl iptables iptables-persistent -y
-apt-get -y install libnss3-dev libnspr4-dev pkg-config \
+sudo apt install openssl iptables iptables-persistent -y
+sudo apt-get -y install libnss3-dev libnspr4-dev pkg-config \
   libpam0g-dev libcap-ng-dev libcap-ng-utils libselinux1-dev \
   libcurl4-nss-dev flex bison gcc make libnss3-tools \
   libevent-dev ppp xl2tpd pptpd
@@ -111,7 +111,7 @@ if [ "$(packaging/utils/lswan_detect.sh init)" = "systemd" ]; then
   fi
 elif [[ ${OS} == "ubuntu" ]]; then
 if [ "$(packaging/utils/lswan_detect.sh init)" = "systemd" ]; then
-  apt-get -y install libsystemd-dev
+ sudo apt-get -y install libsystemd-dev
 fi
 fi
 NPROCS=$(grep -c ^processor /proc/cpuinfo)
