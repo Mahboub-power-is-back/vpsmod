@@ -58,19 +58,19 @@ SERVER_PUB_NIC=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 
 # Install WireGuard tools and module
 	if [[ $OS == 'ubuntu' ]]; then
-	apt install -y wireguard
+	sudo apt install -y wireguard
 elif [[ $OS == 'debian' ]]; then
 	echo "deb http://deb.debian.org/debian/ unstable main" >/etc/apt/sources.list.d/unstable.list
 	printf 'Package: *\nPin: release a=unstable\nPin-Priority: 90\n' >/etc/apt/preferences.d/limit-unstable
-	apt update
-	apt install -y wireguard-tools iptables iptables-persistent
-	apt install -y linux-headers-$(uname -r)
+	sudo apt update
+	sudo apt install -y wireguard-tools iptables iptables-persistent
+	sudo apt install -y linux-headers-$(uname -r)
 elif [[ ${OS} == 'centos' ]]; then
 	curl -Lo /etc/yum.repos.d/wireguard.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
 	yum -y update
 	yum -y install wireguard-dkms wireguard-tools
 	fi
-apt install iptables iptables-persistent -y
+sudo apt install iptables iptables-persistent -y
 # Make sure the directory exists (this does not seem the be the case on fedora)
 mkdir /etc/wireguard >/dev/null 2>&1
 
