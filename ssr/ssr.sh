@@ -95,7 +95,7 @@ yum install -y python2
 alternatives --set python /usr/bin/python2
 fi
 else
-apt-get install -y python
+sudo apt-get install -y python
 fi
 }
 Centos_yum(){
@@ -108,8 +108,8 @@ Centos_yum(){
 	fi
 }
 Debian_apt(){
-	apt-get update
-	apt-get install -y vim unzip cron git net-tools
+	sudo apt-get update
+	sudo apt-get install -y vim unzip cron git net-tools
 }
 Download_SSR(){
 	cd "/usr/local"
