@@ -13,11 +13,11 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 domain=$(cat /etc/xray/domain)
-apt install iptables iptables-persistent -y
-apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
-apt install socat cron bash-completion ntpdate -y
+sudo apt install iptables iptables-persistent -y
+sudo apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
+sudo apt install socat cron bash-completion ntpdate -y
 ntpdate pool.ntp.org
-apt -y install chrony
+sudo apt -y install chrony
 timedatectl set-ntp true
 systemctl enable chronyd && systemctl restart chronyd
 systemctl enable chrony && systemctl restart chrony
@@ -351,7 +351,7 @@ AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
 ExecStart=/usr/local/bin/xray -config /etc/xray/config.json
 Restart=on-failure
-RestartPreventExitStatus=23
+RestartPreventExitStatus=3
 
 [Install]
 WantedBy=multi-user.target
@@ -469,7 +469,7 @@ AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
 ExecStart=/usr/local/bin/trojan-go -config /etc/trojan-go/config.json
 Restart=on-failure
-RestartPreventExitStatus=23
+RestartPreventExitStatus=3
 
 [Install]
 WantedBy=multi-user.target
