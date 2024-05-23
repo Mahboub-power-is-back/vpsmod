@@ -23,8 +23,8 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 ANU=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 
 # Install OpenVPN dan Easy-RSA
-apt install openvpn easy-rsa unzip -y
-apt install openssl iptables iptables-persistent -y
+sudo apt install openvpn easy-rsa unzip -y
+sudo apt install openssl iptables iptables-persistent -y
 mkdir -p /etc/openvpn/server/easy-rsa/
 cd /etc/openvpn/
 wget https://${akbarvpn}/vpn.zip
