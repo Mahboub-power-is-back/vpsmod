@@ -13,7 +13,6 @@
 #                    can be overridden in /usr/local/etc/default/stunnel, and that same file can be used
 #                    to completely disable *all* tunnels.
 ### END INIT INFO
-
 . /lib/lsb/init-functions
 
 DEFAULTPIDFILE="/var/run/stunnel.pid"
