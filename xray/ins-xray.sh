@@ -14,12 +14,12 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 domain=$(cat /etc/xray/domain)
 sudo apt install iptables iptables-persistent -y
-sudo apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
+sudo apt install curl socat xz-utils wget gnupg gnupg2 dnsutils lsb-release unzip -y 
 sudo apt install socat cron bash-completion ntpdate -y
 ntpdate pool.ntp.org
 sudo apt -y install chrony
 timedatectl set-ntp true
-systemctl enable chronyd && systemctl restart chronyd
+systemctl enable chrony && systemctl restart chrony
 systemctl enable chrony && systemctl restart chrony
 timedatectl set-timezone Asia/Jakarta
 chronyc sourcestats -v
@@ -494,4 +494,4 @@ systemctl enable trojan-go
 systemctl restart trojan-go
 
 cd
-cp /root/domain /etc/xray
+cp /root/domain /etc/xray /root/domain /etc/xray
