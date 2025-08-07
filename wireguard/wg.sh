@@ -54,11 +54,11 @@ echo -e "${Info} Wireguard Script By Akbar Maulana"
 # Detect public IPv4 address and pre-fill for the user
 
 # Detect public interface and pre-fill for the user
-SERVER_PUB_NIC=$(ip -o $ANU -4 route show to default | awk '{print $5}');
+SERVER_PUB_NIC=$(ip -4 route ls | grep default | awk '{print $5}' | head -n1)
 
 # Install WireGuard tools and module
 	if [[ $OS == 'ubuntu' ]]; then
-	sudo apt install -y wireguard
+	sudo apt install -y wireguard wireguard-tools linux-headers-$(uname -r)
 elif [[ $OS == 'debian' ]]; then
 	echo "deb http://deb.debian.org/debian/ unstable main" >/etc/apt/sources.list.d/unstable.list
 	printf 'Package: *\nPin: release a=unstable\nPin-Priority: 90\n' >/etc/apt/preferences.d/limit-unstable
