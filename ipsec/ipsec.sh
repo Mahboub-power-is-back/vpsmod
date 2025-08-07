@@ -34,7 +34,7 @@ fi
 akbarvpn="raw.githubusercontent.com/senowahyu62/scriptvps/main/ipsec"
 
 VPN_IPSEC_PSK='myvpn'
-NET_IFACE=$(ip -o $NET_IFACE -4 route show to default | awk '{print $5}');
+NET_IFACE=$(ip -o -4 route show to default | awk '{print $5}')
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 source /etc/os-release
 OS=$ID
@@ -313,4 +313,4 @@ wget -O /usr/bin/renewpptp https://${akbarvpn}/renewpptp.sh && chmod +x /usr/bin
 wget -O /usr/bin/renewl2tp https://${akbarvpn}/renewl2tp.sh && chmod +x /usr/bin/renewl2tp
 touch /var/lib/akbarstorevpn/data-user-l2tp
 touch /var/lib/akbarstorevpn/data-user-pptp
-rm -f /root/ipsec.sh
+rm -f /root/ipsec.shoot/ipsec.sh
