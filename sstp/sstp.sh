@@ -63,7 +63,7 @@ commonname=akbarstorevpn
 email=akbarssh21@gmail.com
 
 #install sstp
-sudo apt-get install -y build-essential cmake gcc linux-headers-`uname -r` git libpcre3-dev libssl-dev liblua5.1-0-dev ppp
+sudo apt-get install -y build-essential cmake gcc git libpcre3-dev libssl-dev liblua5.1-0-dev ppp linux-headers-generic
 git clone https://github.com/accel-ppp/accel-ppp.git /opt/accel-ppp-code
 mkdir /opt/accel-ppp-code/build
 cd /opt/accel-ppp-code/build/
@@ -86,6 +86,7 @@ openssl genrsa -out server.key 4096
 openssl req -new -key server.key -out ia.csr \
 -subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
 openssl x509 -req -days 3650 -in ia.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
+mkdir -p /home/vps/public_html
 cp /home/sstp/server.crt /home/vps/public_html/server.crt
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 444 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 444 -j ACCEPT
@@ -98,4 +99,4 @@ wget -O /usr/bin/addsstp https://${akbarvpn}/addsstp.sh && chmod +x /usr/bin/add
 wget -O /usr/bin/delsstp https://${akbarvpn}/delsstp.sh && chmod +x /usr/bin/delsstp
 wget -O /usr/bin/ceksstp https://${akbarvpn}/ceksstp.sh && chmod +x /usr/bin/ceksstp
 wget -O /usr/bin/renewsstp https://${akbarvpn}/renewsstp.sh && chmod +x /usr/bin/renewsstp
-rm -f /root/sstp.sh
+rm -f /root/sstp.shh
