@@ -17,10 +17,10 @@ akbarvpn="raw.githubusercontent.com/givpn/autoset/master/ssh"
 
 # initialisasi var
 export DEBIAN_FRONTEND=noninteractive
-OS=`uname -m`;
+OS=$(uname -m)
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
-ANU=$(ip -o $ANU -4 route show to default | awk '{print $5}');
+ANU=$(ip route show default | awk '/default/ {print $5}')
 
 # Install OpenVPN dan Easy-RSA
 sudo apt install openvpn easy-rsa unzip -y
@@ -140,14 +140,14 @@ iptables -t nat -I POSTROUTING -s 10.7.0.0/24 -o $ANU -j MASQUERADE
 iptables-save > /etc/iptables.up.rules
 chmod +x /etc/iptables.up.rules
 
-iptables-restore -t < /etc/iptables.up.rules
+iptables-restore < /etc/iptables.up.rules
 netfilter-persistent save
 netfilter-persistent reload
 
 # Restart service openvpn
 systemctl enable openvpn
 systemctl start openvpn
-/etc/init.d/openvpn restart
+systemctl restart openvpn
 
 # Delete script
 history -c
