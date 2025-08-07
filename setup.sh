@@ -19,25 +19,25 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Link Hosting Kalian Untuk Ssh Vpn
-akbarvpn="raw.githubusercontent.com/tcatvpn/scp/main/ssh"
+akbarvpn="raw.githubusercontent.com/Mahboub-power-is-back/vpsmod/main/ssh"
 # Link Hosting Kalian Untuk Sstp
-akbarvpnn="raw.githubusercontent.com/tcatvpn/scp/main/sstp"
+akbarvpnn="raw.githubusercontent.com/Mahboub-power-is-back/vpsmod/main/sstp"
 # Link Hosting Kalian Untuk Ssr
-akbarvpnnn="raw.githubusercontent.com/tcatvpn/scp/main/ssr"
+akbarvpnnn="raw.githubusercontent.com/Mahboub-power-is-back/vpsmod/main/ssr"
 # Link Hosting Kalian Untuk Shadowsocks
-akbarvpnnnn="raw.githubusercontent.com/tcatvpn/scp/main/shadowsocks"
+akbarvpnnnn="raw.githubusercontent.com/Mahboub-power-is-back/vpsmod/main/shadowsocks"
 # Link Hosting Kalian Untuk Wireguard
-akbarvpnnnnn="raw.githubusercontent.com/tcatvpn/scp/main/wireguard"
+akbarvpnnnnn="raw.githubusercontent.com/Mahboub-power-is-back/vpsmod/main/wireguard"
 # Link Hosting Kalian Untuk Xray
-akbarvpnnnnnn="raw.githubusercontent.com/tcatvpn/scp/main/xray"
+akbarvpnnnnnn="raw.githubusercontent.com/Mahboub-power-is-back/vpsmod/main/xray"
 # Link Hosting Kalian Untuk Ipsec
-akbarvpnnnnnnn="raw.githubusercontent.com/tcatvpn/scp/main/ipsec"
+akbarvpnnnnnnn="raw.githubusercontent.com/Mahboub-power-is-back/vpsmod/main/ipsec"
 # Link Hosting Kalian Untuk Backup
-akbarvpnnnnnnnn="raw.githubusercontent.com/tcatvpn/scp/main/backup"
+akbarvpnnnnnnnn="raw.githubusercontent.com/Mahboub-power-is-back/vpsmod/main/backup"
 # Link Hosting Kalian Untuk Websocket
-akbarvpnnnnnnnnn="raw.githubusercontent.com/tcatvpn/scp/main/websocket"
+akbarvpnnnnnnnnn="raw.githubusercontent.com/Mahboub-power-is-back/vpsmod/main/websocket"
 # Link Hosting Kalian Untuk Ohp
-akbarvpnnnnnnnnnn="raw.githubusercontent.com/tcatvpn/scp/main/ohp"
+akbarvpnnnnnnnnnn="raw.githubusercontent.com/Mahboub-power-is-back/vpsmod/main/ohp"
 
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
